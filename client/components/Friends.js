@@ -30,21 +30,31 @@ render() {
 
         <div className="container">
           <br></br>
-          <h2 className="header center-align">Friends</h2>
+          <h2 className="header center-align red-text">Friends</h2>
           <div className="row center">
-            <h5 className="header col s12 light">Check out the top gamers of the last week!</h5>
-            <h6 className="header col s12 light">Fill in the search bar to find a friend to game with.</h6>
+            <h5 className="header col s12 light">Here is a list of the most popular gamers playing today!</h5>
+            <h6 className="header col s12 light"><strong>Connect with a new friend. See what games they play. Then search for new ones!</strong></h6>
           </div>
         </div>
 
 
         <div className="row l8 m10">
-          {this.state.people.slice(0,39).map((people, index) => {
+          {this.state.people.slice(0,45).map((people, index) => {
+            const friendImages = [
+              '/images/avatar_v01.png',
+              '/images/avatar_v02.png',
+              '/images/avatar_v03.png',
+              '/images/avatar_v04.png',
+              '/images/avatar_v05.png',
+              '/images/avatar_v06.png',
+            ]
+            const randomImage = friendImages[Math.floor(Math.random() * friendImages.length)]
+
             return (
               <div key={index} className="col m4">
                 <div className="card">
                   <div className="card-image">
-                    <img src={people.image ? people.image : '/images/avatar_v01.png'} />
+                    <img src={people.image ? people.image : randomImage} />
                   </div>
                   <div className="card-content">
                     <p>{people.name}</p>

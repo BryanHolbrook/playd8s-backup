@@ -28,24 +28,39 @@ class Games extends React.Component {
 
           <div className="container">
             <br></br>
-            <h2 className="header center-align">Games</h2>
+            <h2 className="header center-align red-text">Games</h2>
             <div className="row center">
-              <h5 className="header col s12 light">Check out the top games of last week!</h5>
-              <h6 className="header col s12 light">Fill in the search bar to find a game to play!.</h6>
+              <h5 className="header col s12 light">Here is a list of the most popular games being played today!</h5>
+              <h6 className="header col s12 light"><strong>Click the links, watch a trailer, read the summary, search games!</strong></h6>
             </div>
           </div>
 
 
           <div className="row l8 m10">
             {this.state.games.slice(0,39).map((game, index) => {
+              const gameImages = [
+                '/images/game_img_unavail_01.png',
+                '/images/game_img_unavail_02.png',
+                '/images/game_img_unavail_03.png',
+                '/images/game_img_unavail_04.png',
+                '/images/game_img_unavail_05.png',
+                '/images/game_img_unavail_06.png',
+                '/images/game_img_unavail_07.png',
+              ]
+
+              const randomImage=
+              gameImages[Math.floor(Math.random() *
+              gameImages.length)]
+
               return (
                 <div key={index} className="col m4">
                   <div className="card">
                     <div className="card-image">
-                      <img src={game.cover.url ? game.cover.url : '/images/img02.png'} />
+                      <img src={randomImage} />
+                      {/* <img src={game.cover.url ? game.cover.url : '/images/img02.png'} /> */}
                     </div>
                     <div className="card-content">
-                      <h6><bold>{game.name}</bold></h6>
+                      <h6><strong>{game.name}</strong></h6>
                     </div>
                     <div className="card-action">
                       <a className="red-text" href={game.url} target="_blank">
